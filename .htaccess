@@ -1,13 +1,6 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
+ RewriteEngine On
   RewriteBase /
-
-  # Allow existing files and folders
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
-  RewriteRule . - [L]
-
-  # Redirect all routes to index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
-</IfModule>
